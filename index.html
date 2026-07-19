@@ -1,0 +1,3255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nandish B C | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== THEME COLOR PALETTES ===== */
+        :root {
+            --primary: #F97316;
+            --primary-dark: #EA580C;
+            --primary-light: #FB923C;
+            --secondary: #2563EB;
+            --secondary-dark: #1D4ED8;
+            --accent: #F59E0B;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --bg-dark: #0A0A0A;
+            --card-bg: #1A1A1A;
+            --bg-light: #F8FAFC;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A3A3A3;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --glass-bg: rgba(26, 26, 26, 0.8);
+            --shadow-dark: 0 20px 50px -12px rgba(0, 0, 0, 0.9);
+            --shadow-light: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+            --radius: 20px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+            --font-mont: 'Montserrat', sans-serif;
+            --neumo-bg: #1A1A1A;
+            --neumo-shadow: 8px 8px 16px rgba(0, 0, 0, 0.7), -8px -8px 16px rgba(255, 255, 255, 0.03);
+            --neumo-inset: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+            --train-bg: #1A1A1A;
+        }
+
+        [data-theme="blue"] {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #60A5FA;
+            --secondary: #F97316;
+            --secondary-dark: #EA580C;
+            --bg-dark: #0F172A;
+            --card-bg: #1E293B;
+            --train-bg: #1E293B;
+        }
+
+        [data-theme="dark-orange"] {
+            --primary: #EA580C;
+            --primary-dark: #C2410C;
+            --primary-light: #F97316;
+            --secondary: #F59E0B;
+            --secondary-dark: #D97706;
+            --bg-dark: #050505;
+            --card-bg: #111111;
+            --train-bg: #111111;
+        }
+
+        body.light-mode {
+            --bg-dark: #F1F5F9;
+            --card-bg: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --border-color: rgba(0, 0, 0, 0.06);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --neumo-bg: #FFFFFF;
+            --neumo-shadow: 8px 8px 16px rgba(174, 185, 198, 0.5), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            --neumo-inset: inset 4px 4px 8px rgba(174, 185, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            --train-bg: #FFFFFF;
+            --shadow-dark: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        body.light-mode[data-theme="blue"] {
+            --bg-dark: #EFF6FF;
+            --card-bg: #FFFFFF;
+            --train-bg: #FFFFFF;
+        }
+
+        body.light-mode[data-theme="dark-orange"] {
+            --bg-dark: #FFF7ED;
+            --card-bg: #FFFFFF;
+            --train-bg: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 90px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-mont);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-header .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .neumo {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--neumo-shadow);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .neumo:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-2px);
+        }
+
+        .neumo-inset {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--neumo-inset);
+            border: none;
+        }
+
+        .neumo-btn {
+            background: var(--neumo-bg);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            box-shadow: var(--neumo-shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .neumo-btn:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-2px);
+        }
+
+        .neumo-btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+        }
+
+        .neumo-btn-primary:hover {
+            box-shadow: 0 12px 36px rgba(249, 115, 22, 0.5), var(--neumo-inset);
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--neumo-bg);
+            box-shadow: var(--neumo-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.2s ease-in-out infinite;
+        }
+        .loader-spinner::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            box-shadow: var(--shadow-dark);
+        }
+        body.light-mode .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--shadow-light);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-mont);
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--text-primary);
+            -webkit-text-fill-color: var(--text-primary);
+        }
+        body.light-mode .logo span {
+            -webkit-text-fill-color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            background: rgba(249, 115, 22, 0.15);
+        }
+        body.light-mode .nav-links a:hover,
+        body.light-mode .nav-links a.active {
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle {
+            background: var(--neumo-bg);
+            border: none;
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--neumo-shadow);
+        }
+        .theme-toggle:hover {
+            box-shadow: var(--neumo-inset);
+            color: var(--primary);
+            transform: rotate(20deg);
+        }
+
+        .palette-picker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .palette-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--neumo-shadow);
+            background: var(--neumo-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .palette-btn:hover {
+            box-shadow: var(--neumo-inset);
+            transform: scale(1.05);
+        }
+        .palette-dropdown {
+            position: absolute;
+            top: 48px;
+            right: 0;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 12px;
+            box-shadow: var(--shadow-dark);
+            display: none;
+            gap: 8px;
+            flex-wrap: wrap;
+            width: 200px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+        .palette-dropdown.open {
+            display: flex;
+        }
+        .palette-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: var(--neumo-shadow);
+            flex-shrink: 0;
+        }
+        .palette-option:hover {
+            transform: scale(1.1);
+            border-color: var(--text-primary);
+        }
+        .palette-option.active {
+            border-color: var(--text-primary);
+            box-shadow: var(--neumo-inset);
+        }
+        .palette-option[data-theme="default"] {
+            background: linear-gradient(135deg, #F97316, #2563EB);
+        }
+        .palette-option[data-theme="blue"] {
+            background: linear-gradient(135deg, #2563EB, #F97316);
+        }
+        .palette-option[data-theme="dark-orange"] {
+            background: linear-gradient(135deg, #EA580C, #F59E0B);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(249, 115, 22, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        #particles-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-mont);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .hero-content h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .typing-wrapper {
+            font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            min-height: 2.2em;
+        }
+        .hero-content .typing-wrapper .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background: var(--primary);
+            margin-left: 4px;
+            animation: blink 0.8s step-end infinite;
+            vertical-align: text-bottom;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn-outline {
+            background: var(--neumo-bg);
+            color: var(--text-primary);
+            box-shadow: var(--neumo-shadow);
+        }
+        .btn-outline:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-3px);
+        }
+        .btn-outline i {
+            color: var(--primary);
+        }
+
+        .btn-pulse {
+            animation: pulseBtn 2s ease-in-out infinite;
+        }
+        @keyframes pulseBtn {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 14px rgba(249, 115, 22, 0);
+            }
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 16px;
+        }
+        .hero-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--neumo-bg);
+            box-shadow: var(--neumo-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .hero-social a:hover {
+            color: var(--primary);
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-image .profile-wrap {
+            position: relative;
+            width: 380px;
+            height: 380px;
+        }
+        .hero-image .profile-wrap .orbit {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            animation: orbitSpin 20s linear infinite;
+        }
+        .hero-image .profile-wrap .orbit:nth-child(2) {
+            inset: -40px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+            border-color: rgba(249, 115, 22, 0.12);
+        }
+        @keyframes orbitSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-image .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--neumo-shadow);
+            position: relative;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+
+        .hero-image .floating-badge {
+            position: absolute;
+            background: var(--neumo-bg);
+            box-shadow: var(--neumo-shadow);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+            animation: float 4s ease-in-out infinite;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .hero-image .floating-badge i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+        .hero-image .floating-badge:nth-child(3) {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0.5s;
+        }
+        .hero-image .floating-badge:nth-child(4) {
+            bottom: 10%;
+            left: -10%;
+            animation-delay: 1s;
+        }
+        .hero-image .floating-badge:nth-child(5) {
+            top: 50%;
+            left: -18%;
+            animation-delay: 1.5s;
+        }
+
+        /* ===== TRAIN SECTION - SNAKE STYLE ===== */
+        .train-section {
+            background: var(--bg-dark);
+            padding: 30px 0;
+            overflow: hidden;
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .train-container {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+            padding: 30px 0;
+        }
+
+        .train-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: max-content;
+            padding: 0 10px;
+            animation: snakeMove 20s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes snakeMove {
+            0% {
+                transform: translateX(0) translateY(0) scale(1);
+            }
+            12.5% {
+                transform: translateX(12%) translateY(-8px) scale(1.02);
+            }
+            25% {
+                transform: translateX(25%) translateY(0) scale(1);
+            }
+            37.5% {
+                transform: translateX(37%) translateY(8px) scale(1.02);
+            }
+            50% {
+                transform: translateX(50%) translateY(0) scale(1);
+            }
+            62.5% {
+                transform: translateX(62%) translateY(-8px) scale(1.02);
+            }
+            75% {
+                transform: translateX(75%) translateY(0) scale(1);
+            }
+            87.5% {
+                transform: translateX(87%) translateY(8px) scale(1.02);
+            }
+            100% {
+                transform: translateX(100%) translateY(0) scale(1);
+            }
+        }
+
+        .train-coach {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 16px 16px 8px 8px;
+            padding: 14px 22px;
+            box-shadow: var(--neumo-shadow);
+            flex-shrink: 0;
+            min-width: 160px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: coachWave 2.4s ease-in-out infinite;
+        }
+
+        .train-coach:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .train-coach:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        .train-coach:nth-child(3) {
+            animation-delay: 0.30s;
+        }
+        .train-coach:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+        .train-coach:nth-child(5) {
+            animation-delay: 0.60s;
+        }
+        .train-coach:nth-child(6) {
+            animation-delay: 0.75s;
+        }
+        .train-coach:nth-child(7) {
+            animation-delay: 0.90s;
+        }
+        .train-coach:nth-child(8) {
+            animation-delay: 1.05s;
+        }
+        .train-coach:nth-child(9) {
+            animation-delay: 1.20s;
+        }
+        .train-coach:nth-child(10) {
+            animation-delay: 1.35s;
+        }
+        .train-coach:nth-child(11) {
+            animation-delay: 1.50s;
+        }
+        .train-coach:nth-child(12) {
+            animation-delay: 1.65s;
+        }
+        .train-coach:nth-child(13) {
+            animation-delay: 1.80s;
+        }
+        .train-coach:nth-child(14) {
+            animation-delay: 1.95s;
+        }
+        .train-coach:nth-child(15) {
+            animation-delay: 2.10s;
+        }
+
+        @keyframes coachWave {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-10px) rotate(1.5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(10px) rotate(-1.5deg);
+            }
+        }
+
+        .train-coach::before {
+            content: '🚃';
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .train-coach .coach-text {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+        .train-coach .coach-text .highlight-word {
+            color: var(--primary);
+        }
+        .train-coach .coach-text .blue-word {
+            color: var(--secondary);
+        }
+
+        .train-coach:hover {
+            transform: translateY(-12px) scale(1.04) !important;
+            border-color: var(--secondary);
+            box-shadow: 0 12px 40px rgba(249, 115, 22, 0.2);
+            z-index: 10;
+        }
+
+        .train-coach::after {
+            content: '⚫ ⚫';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 16px;
+            opacity: 0.25;
+        }
+
+        .train-engine {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            padding: 16px 24px;
+            color: #fff;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(249, 115, 22, 0.3);
+            flex-shrink: 0;
+            min-width: 80px;
+            justify-content: center;
+            position: relative;
+            animation: enginePulse 2s ease-in-out infinite;
+        }
+
+        .train-engine::after {
+            content: '🚂';
+            font-size: 2rem;
+        }
+
+        .train-engine::before {
+            content: '💨 💨';
+            position: absolute;
+            top: -24px;
+            right: -10px;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            animation: smokeRise 3s ease-out infinite;
+            letter-spacing: 8px;
+        }
+
+        @keyframes smokeRise {
+            0% {
+                opacity: 0.6;
+                transform: translateY(0) scale(0.8);
+            }
+            50% {
+                opacity: 0.3;
+                transform: translateY(-20px) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-40px) scale(1.5);
+            }
+        }
+
+        @keyframes enginePulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: var(--font-mont);
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        .about-text .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .stat-card {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px);
+        }
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: var(--font-mont);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+        }
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--neumo-shadow);
+            max-width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        .about-image img:hover {
+            box-shadow: var(--neumo-inset);
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+        }
+        .skill-category {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        .skill-category:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px);
+        }
+        .skill-category h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mont);
+            color: var(--primary);
+        }
+        .skill-category h4 i {
+            color: var(--secondary);
+        }
+
+        .skill-item {
+            margin-bottom: 14px;
+        }
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+        .skill-item .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .skill-item .skill-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .skill-item .skill-bar .fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0;
+            transition: width 1.2s ease;
+            box-shadow: 0 0 12px rgba(249, 115, 22, 0.3);
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 24px 28px;
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            box-shadow: var(--neumo-inset);
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 28px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 4px var(--primary), 0 0 0 8px rgba(249, 115, 22, 0.12);
+        }
+        body.light-mode .timeline-item::before {
+            border-color: var(--bg-light);
+        }
+
+        .timeline-item .date {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 4px 0 2px;
+            font-family: var(--font-mont);
+        }
+        .timeline-item .company {
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .timeline-item .company i {
+            color: var(--primary);
+        }
+        .timeline-item ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        .timeline-item ul li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+        .edu-card {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .edu-card:hover::before {
+            transform: scaleX(1);
+        }
+        .edu-card:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px);
+        }
+        .edu-card .icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .edu-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: var(--font-mont);
+        }
+        .edu-card .institute {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .edu-card .detail {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            font-weight: 300;
+        }
+        .edu-card .badge {
+            display: inline-block;
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(249, 115, 22, 0.12);
+            color: var(--primary);
+            margin-top: 8px;
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+        }
+        .project-card {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.4s ease;
+        }
+        .project-card:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-6px);
+        }
+        .project-card .img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+        .project-card .img-wrap i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.15);
+        }
+        .project-card .body {
+            padding: 22px 24px 24px;
+        }
+        .project-card .body h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: var(--font-mont);
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .project-card .body p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+        .project-card .body .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .project-card .body .tags span {
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            background: rgba(249, 115, 22, 0.10);
+            color: var(--primary);
+            border: 1px solid rgba(249, 115, 22, 0.06);
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 28px;
+        }
+        .cert-card {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-left: 3px solid var(--primary);
+        }
+        .cert-card:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px);
+        }
+        .cert-card .icon {
+            font-size: 2.4rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .cert-card h5 {
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: var(--font-mont);
+        }
+        .cert-card .issuer {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .cert-card .date {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--neumo-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            border-bottom: 3px solid var(--primary);
+        }
+        .service-card:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-6px);
+        }
+        .service-card .icon {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .service-card h5 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            font-family: var(--font-mont);
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+        .testimonial-item {
+            min-width: 100%;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .testimonial-item .quote {
+            font-size: 2.4rem;
+            color: var(--primary);
+            opacity: 0.25;
+            margin-bottom: 8px;
+        }
+        .testimonial-item blockquote {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 16px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        .testimonial-item .role-tag {
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(249, 115, 22, 0.10);
+            color: var(--primary);
+            border: 1px solid rgba(249, 115, 22, 0.08);
+        }
+        .testimonial-item .stars {
+            color: var(--warning);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .slider-controls button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--neumo-bg);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: var(--neumo-shadow);
+        }
+        .slider-controls button:hover {
+            box-shadow: var(--neumo-inset);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .slider-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .slider-dots .dot.active {
+            background: var(--primary);
+            width: 32px;
+            border-radius: 10px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: var(--font-mont);
+            margin-bottom: 12px;
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 28px;
+        }
+        .contact-info .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .contact-info .info-item i {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--neumo-bg);
+            box-shadow: var(--neumo-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .contact-info .info-item i:hover {
+            box-shadow: var(--neumo-inset);
+        }
+        .contact-info .info-item .text {
+            font-weight: 400;
+        }
+        .contact-info .info-item .text small {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+
+        .contact-form {
+            background: var(--neumo-bg);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+            box-shadow: var(--neumo-shadow);
+        }
+        .contact-form:hover {
+            box-shadow: var(--neumo-inset);
+        }
+        .contact-form .form-group {
+            position: relative;
+            margin-bottom: 22px;
+        }
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: none;
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            outline: none;
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.04);
+        }
+        body.light-mode .contact-form .form-group input,
+        body.light-mode .contact-form .form-group textarea {
+            background: var(--bg-light);
+            box-shadow: inset 4px 4px 8px rgba(174, 185, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+        }
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.04), 0 0 0 3px rgba(249, 115, 22, 0.15);
+        }
+        .contact-form .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form .form-group label {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: transparent;
+            padding: 0 4px;
+        }
+        .contact-form .form-group textarea~label {
+            top: 16px;
+            transform: none;
+        }
+        .contact-form .form-group input:focus~label,
+        .contact-form .form-group input:not(:placeholder-shown)~label,
+        .contact-form .form-group textarea:focus~label,
+        .contact-form .form-group textarea:not(:placeholder-shown)~label {
+            top: -10px;
+            left: 14px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            background: var(--neumo-bg);
+            padding: 0 8px;
+            transform: none;
+        }
+        .contact-form .form-group input::placeholder,
+        .contact-form .form-group textarea::placeholder {
+            color: transparent;
+        }
+        .contact-form .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--neumo-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 0 24px;
+            margin-top: 40px;
+            box-shadow: var(--neumo-shadow);
+        }
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .footer .brand p {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+        .footer .brand .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .footer .brand .socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--neumo-bg);
+            box-shadow: var(--neumo-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        .footer .brand .socials a:hover {
+            box-shadow: var(--neumo-inset);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer h5 {
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: var(--font-mont);
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .footer ul li {
+            margin-bottom: 6px;
+        }
+        .footer ul li a {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        .footer-bottom .heart {
+            color: var(--error);
+        }
+
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--neumo-bg);
+            color: var(--text-primary);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--neumo-shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        .back-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-top:hover {
+            box-shadow: var(--neumo-inset);
+            transform: translateY(-4px) scale(1.05);
+            color: var(--primary);
+        }
+
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-social {
+                justify-content: center;
+            }
+            .hero-image .profile-wrap {
+                width: 300px;
+                height: 300px;
+                margin: 0 auto;
+            }
+            .hero-image .floating-badge:nth-child(3) {
+                right: 0;
+            }
+            .hero-image .floating-badge:nth-child(4) {
+                left: 0;
+            }
+            .hero-image .floating-badge:nth-child(5) {
+                left: -5%;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+            .footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .train-coach {
+                min-width: 130px;
+                padding: 10px 14px;
+            }
+            .train-coach .coach-text {
+                font-size: 0.8rem;
+            }
+            .train-engine {
+                min-width: 60px;
+                padding: 12px 16px;
+                font-size: 1.4rem;
+            }
+            .train-engine::after {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--card-bg);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 80px 24px 24px;
+                transition: right 0.4s ease;
+                border-left: 1px solid var(--border-color);
+                gap: 4px;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-image .profile-wrap {
+                width: 220px;
+                height: 220px;
+            }
+            .hero-image .floating-badge {
+                font-size: 0.65rem;
+                padding: 6px 12px;
+            }
+            .hero-image .floating-badge:nth-child(3) {
+                top: 0;
+                right: -5%;
+            }
+            .hero-image .floating-badge:nth-child(4) {
+                bottom: 0;
+                left: -5%;
+            }
+            .hero-image .floating-badge:nth-child(5) {
+                display: none;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 16px 12px;
+            }
+            .stat-card .number {
+                font-size: 1.6rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer .brand .socials {
+                justify-content: center;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .contact-form {
+                padding: 24px 18px;
+            }
+            .train-engine {
+                min-width: 50px;
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+            .train-engine::after {
+                font-size: 1.2rem;
+            }
+            .train-engine::before {
+                font-size: 0.8rem;
+                top: -16px;
+                right: -4px;
+            }
+            .train-coach {
+                min-width: 100px;
+                padding: 8px 10px;
+            }
+            .train-coach .coach-text {
+                font-size: 0.65rem;
+            }
+            .train-coach::before {
+                font-size: 0.9rem;
+            }
+            .train-coach::after {
+                font-size: 0.5rem;
+                letter-spacing: 10px;
+                bottom: -12px;
+            }
+            @keyframes snakeMove {
+                0% {
+                    transform: translateX(0) translateY(0);
+                }
+                25% {
+                    transform: translateX(25%) translateY(-4px);
+                }
+                50% {
+                    transform: translateX(50%) translateY(0);
+                }
+                75% {
+                    transform: translateX(75%) translateY(4px);
+                }
+                100% {
+                    transform: translateX(100%) translateY(0);
+                }
+            }
+            @keyframes coachWave {
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                25% {
+                    transform: translateY(-6px) rotate(1deg);
+                }
+                50% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                75% {
+                    transform: translateY(6px) rotate(-1deg);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-buttons .btn {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+            }
+            .hero-image .profile-wrap {
+                width: 180px;
+                height: 180px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 12px 8px;
+            }
+            .stat-card .number {
+                font-size: 1.3rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .train-coach {
+                min-width: 80px;
+                padding: 6px 8px;
+            }
+            .train-coach .coach-text {
+                font-size: 0.55rem;
+            }
+            .train-coach::before {
+                font-size: 0.7rem;
+            }
+            .train-engine {
+                min-width: 40px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+            .train-engine::after {
+                font-size: 1rem;
+            }
+            .train-engine::before {
+                display: none;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--neumo-bg);
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            max-width: 90%;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast.success {
+            border-left-color: var(--success);
+        }
+        .toast.error {
+            border-left-color: var(--error);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">Nandish<span>BC</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="palette-picker">
+                    <button class="palette-btn" id="paletteBtn" aria-label="Color palette">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="palette-dropdown" id="paletteDropdown">
+                        <div class="palette-option active" data-theme="default" title="Orange-Blue"></div>
+                        <div class="palette-option" data-theme="blue" title="Blue-Orange"></div>
+                        <div class="palette-option" data-theme="dark-orange" title="Dark Orange"></div>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <canvas id="particles-canvas"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Nandish B C</span></h1>
+                <div class="typing-wrapper">
+                    <span id="typedText"></span><span class="cursor"></span>
+                </div>
+                <p>
+                    Ambitious finance professional with expertise in <strong>US GAAP/IAS research</strong>,
+                    financial reporting, and data analytics. Currently working as an
+                    <strong>Executive Accountant</strong> at Grandeur Advisors LLP,
+                    managing month-end close, AP/AR/GL reconciliations,
+                    and delivering insights through Power BI and Excel.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary btn-pulse" id="resumeBtn">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://linkedin.com/in/nandishbc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/nandishbc" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Bc2Nandish?t=lrAN-pDB6W395PRMCL4Cuw&s=09" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@nandishbc2003/featured" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/iamnandish13?igshid=ZDdkNTZiNTM%3D" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-wrap">
+                    <div class="orbit"></div>
+                    <div class="orbit"></div>
+                    <img src="https://uploads.onecompiler.io/44pjg2k6f/1784478087889/WhatsApp%20Image%202026-07-19%20at%207.36.30%20PM.jpeg" alt="Nandish B C" class="profile-img" />
+                    <div class="floating-badge"><i class="fas fa-code"></i> M.Com (Finance)</div>
+                    <div class="floating-badge"><i class="fas fa-chart-line"></i> US GAAP/IAS Researcher</div>
+                    <div class="floating-badge"><i class="fas fa-award"></i> State 2nd Rank</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRAIN SECTION - SNAKE STYLE ===== -->
+    <section class="train-section">
+        <div class="container" style="max-width:100%;padding:0 10px;">
+            <div class="train-container">
+                <div class="train-track" id="trainTrack">
+                    <div class="train-engine"></div>
+                    <div class="train-coach">
+                        <div class="coach-text">🚀 <span class="highlight-word">Innovating</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">💡 <span class="highlight-word">the way</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🧠 <span class="highlight-word">of thinking</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">📊 <span class="blue-word">in Finance</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🌀 <span class="highlight-word">.....</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">💪 <span class="blue-word">Be Flexible</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🌟 <span class="highlight-word">...</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🚀 <span class="highlight-word">Innovating</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">💡 <span class="highlight-word">the way</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🧠 <span class="highlight-word">of thinking</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">📊 <span class="blue-word">in Finance</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🌀 <span class="highlight-word">.....</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">💪 <span class="blue-word">Be Flexible</span></div>
+                    </div>
+                    <div class="train-coach">
+                        <div class="coach-text">🌟 <span class="highlight-word">...</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">A brief introduction about who I am and what I do.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <h3>US GAAP/IAS Researcher &amp; Finance Professional</h3>
+                    <p>
+                        I am a detail-oriented finance professional with a strong foundation in
+                        <span class="highlight-text">US GAAP &amp; IAS research</span>, financial
+                        reporting, and data analytics. Currently working as an
+                        <span class="highlight-text">Executive Accountant</span> at
+                        <span class="highlight-text">Grandeur Advisors LLP</span>,
+                        I manage month-end close activities, AP/AR/GL reconciliations, and
+                        deliver data-driven insights using Power BI, Excel, and SQL.
+                    </p>
+                    <p>
+                        My academic journey includes pursuing my
+                        <span class="highlight-text">M.Com in Accounting &amp; Finance</span>
+                        from Karnataka State Open University, Mysuru (2024–2026), and securing
+                        the <span class="highlight-text">2nd rank</span> in the Karnataka
+                        State Pre-University Course in Commerce.
+                    </p>
+                    <p>
+                        I am passionate about research in accounting standards, leveraging
+                        technology to drive financial efficiency, and contributing to
+                        organizational growth through precise financial solutions and
+                        continuous learning.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="number" data-count="4">0</div>
+                            <div class="label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" data-count="12">0</div>
+                            <div class="label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" data-count="25">0</div>
+                            <div class="label">Students Tutored</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" data-count="6">0</div>
+                            <div class="label">Certifications</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal-right">
+                    <img src="https://uploads.onecompiler.io/44pjg2k6f/1784478087889/WhatsApp%20Image%202026-07-19%20at%207.36.30%20PM.jpeg" alt="About Nandish" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">My Skills</h2>
+                <p class="section-subtitle">Technical expertise and professional competencies.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <h4><i class="fas fa-calculator"></i> Accounting &amp; Finance</h4>
+                    <div class="skill-item"><div class="skill-info"><span>US GAAP &amp; IAS Research</span><span>92%</span></div><div class="skill-bar"><div class="fill" data-width="92"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Financial Accounting</span><span>95%</span></div><div class="skill-bar"><div class="fill" data-width="95"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Cost &amp; Management Accounting</span><span>90%</span></div><div class="skill-bar"><div class="fill" data-width="90"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Auditing &amp; Internal Controls</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>GST &amp; Taxation</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h4><i class="fas fa-laptop-code"></i> ERP &amp; Software</h4>
+                    <div class="skill-item"><div class="skill-info"><span>NetSuite</span><span>85%</span></div><div class="skill-bar"><div class="fill" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Oracle E-Business Suite</span><span>80%</span></div><div class="skill-bar"><div class="fill" data-width="80"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Tally ERP 9</span><span>92%</span></div><div class="skill-bar"><div class="fill" data-width="92"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>QuickBooks</span><span>75%</span></div><div class="skill-bar"><div class="fill" data-width="75"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>SAP</span><span>70%</span></div><div class="skill-bar"><div class="fill" data-width="70"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h4><i class="fas fa-chart-pie"></i> Data &amp; Analytics</h4>
+                    <div class="skill-item"><div class="skill-info"><span>Advanced Excel (VBA, Pivot)</span><span>95%</span></div><div class="skill-bar"><div class="fill" data-width="95"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Power BI</span><span>90%</span></div><div class="skill-bar"><div class="fill" data-width="90"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Power Query</span><span>85%</span></div><div class="skill-bar"><div class="fill" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>SQL</span><span>82%</span></div><div class="skill-bar"><div class="fill" data-width="82"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Data Analysis &amp; Visualization</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h4><i class="fas fa-calendar-alt"></i> Month-End &amp; Reconciliation</h4>
+                    <div class="skill-item"><div class="skill-info"><span>Month-End Close</span><span>92%</span></div><div class="skill-bar"><div class="fill" data-width="92"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>AP/AR/GL Reconciliation</span><span>94%</span></div><div class="skill-bar"><div class="fill" data-width="94"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Bank Reconciliation</span><span>96%</span></div><div class="skill-bar"><div class="fill" data-width="96"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Deposit Reconciliation</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Financial Reporting</span><span>90%</span></div><div class="skill-bar"><div class="fill" data-width="90"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h4><i class="fas fa-users"></i> Soft Skills</h4>
+                    <div class="skill-item"><div class="skill-info"><span>Analytical Thinking</span><span>94%</span></div><div class="skill-bar"><div class="fill" data-width="94"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Communication</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Problem Solving</span><span>90%</span></div><div class="skill-bar"><div class="fill" data-width="90"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Leadership</span><span>80%</span></div><div class="skill-bar"><div class="fill" data-width="80"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Project Analysis</span><span>85%</span></div><div class="skill-bar"><div class="fill" data-width="85"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal" style="border-left-color: var(--secondary);">
+                    <h4><i class="fas fa-university"></i> Finance Domains</h4>
+                    <div class="skill-item"><div class="skill-info"><span>Investment Banking</span><span>78%</span></div><div class="skill-bar"><div class="fill" data-width="78"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Corporate Finance</span><span>85%</span></div><div class="skill-bar"><div class="fill" data-width="85"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Wealth Management</span><span>72%</span></div><div class="skill-bar"><div class="fill" data-width="72"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Mergers &amp; Acquisitions</span><span>70%</span></div><div class="skill-bar"><div class="fill" data-width="70"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Portfolio Management</span><span>75%</span></div><div class="skill-bar"><div class="fill" data-width="75"></div></div></div>
+                </div>
+
+                <div class="skill-category reveal" style="border-left-color: var(--accent);">
+                    <h4><i class="fas fa-store"></i> Commerce Domains</h4>
+                    <div class="skill-item"><div class="skill-info"><span>E-Commerce Management</span><span>80%</span></div><div class="skill-bar"><div class="fill" data-width="80"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Supply Chain Management</span><span>76%</span></div><div class="skill-bar"><div class="fill" data-width="76"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>International Trade</span><span>72%</span></div><div class="skill-bar"><div class="fill" data-width="72"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Business Strategy</span><span>82%</span></div><div class="skill-bar"><div class="fill" data-width="82"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><span>Customer Relationship Mgmt</span><span>84%</span></div><div class="skill-bar"><div class="fill" data-width="84"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey and key roles in chronological order.</p>
+            </div>
+            <div class="timeline">
+
+                <!-- 1. TUTORING - 2021 to 2025 -->
+                <div class="timeline-item reveal" style="border-left: 4px solid var(--primary);">
+                    <div class="date">2021 – 2025</div>
+                    <h4>Private Tutor (Freelance) – Part-Time</h4>
+                    <div class="company"><i class="fas fa-user-graduate"></i> Self-Employed</div>
+                    <ul>
+                        <li><strong>Subjects Delivered:</strong> Financial Accounting, Cost Accounting, Management Accounting, Corporate Accounting, Business Taxation (GST), Business Studies, Computer Science, and Coding.</li>
+                        <li><strong>Expert Teaching:</strong> Designed customized lesson plans tailored to individual student needs, simplifying complex accounting and finance concepts using real-world examples and case studies.</li>
+                        <li><strong>Student Success:</strong> Tutored 25+ students from Grade 10 to 12 and undergraduate levels, helping them achieve top scores and secure admissions to prestigious institutions.</li>
+                        <li><strong>Interactive Sessions:</strong> Conducted one-on-one and group sessions using interactive whiteboards, practice problems, and mock tests to reinforce learning and build confidence.</li>
+                        <li><strong>Feedback &amp; Growth:</strong> Regularly collected student feedback to refine teaching methods, resulting in a 95% satisfaction rate and consistent academic improvement.</li>
+                        <li><strong>Flexible &amp; Adaptable:</strong> Managed multiple students with diverse learning styles simultaneously, balancing tutoring with full-time professional roles.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. RYDEU - Dec 2024 to Mar 2025 -->
+                <div class="timeline-item reveal">
+                    <div class="date">Dec 2024 – Mar 2025</div>
+                    <h4>Finance &amp; Accounting Intern</h4>
+                    <div class="company"><i class="fas fa-building"></i> Rydeu Logistics UG</div>
+                    <ul>
+                        <li>Conducted investor research and applied for funding rounds.</li>
+                        <li>Analyzed financial statements to identify trends, variances, and improvement areas.</li>
+                        <li>Assisted with accounting, bookkeeping, and preparation of monthly/quarterly financial reports.</li>
+                        <li>Processed accounts payable/receivable, invoicing, and reconciliations.</li>
+                        <li>Supported tax return filing including GST and TDS compliance.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. ATKINS - Mar 2025 to Mar 2026 -->
+                <div class="timeline-item reveal">
+                    <div class="date">Mar 2025 – Mar 2026</div>
+                    <h4>Finance Apprentice – Sr. Associate (F&amp;A)</h4>
+                    <div class="company"><i class="fas fa-building"></i> AtkinsRéalis</div>
+                    <ul>
+                        <li>End-to-end bank reconciliation for India &amp; UK entities across HSBC, BOA, Axis, and other corporate banks.</li>
+                        <li>Posted journals including accruals, reversals, payroll, tax, intercompany, and adjustment entries.</li>
+                        <li>Handled intercompany invoice creation, reconciliation, matching, and knock-off across multiple entities.</li>
+                        <li>Designed Power BI dashboards and Excel VBA automation models for real-time financial insights.</li>
+                        <li>Managed fixed assets activities including additions, disposals, depreciation, and capitalization.</li>
+                        <li>Assisted with VAT reconciliations, tax adjustments, and monthly statutory compliance for India &amp; UK entities.</li>
+                    </ul>
+                </div>
+
+                <!-- 4. GRANDEUR - Apr 2026 to Present -->
+                <div class="timeline-item reveal" style="border-left: 4px solid var(--secondary);">
+                    <div class="date">Apr 2026 – Present</div>
+                    <h4>Executive Accountant</h4>
+                    <div class="company"><i class="fas fa-building"></i> Grandeur Advisors LLP</div>
+                    <ul>
+                        <li>Managing end-to-end month-end close activities including journal entries, accruals, and reconciliations.</li>
+                        <li>Performing AP/AR/GL reconciliations ensuring accuracy and timely resolution of discrepancies.</li>
+                        <li>Handling deposit reconciliations and bank reconciliations across multiple accounts.</li>
+                        <li>Working with US clients adhering to <strong>US GAAP accounting standards</strong> and financial reporting requirements.</li>
+                        <li>Utilizing NetSuite and Oracle tools for financial data management and reporting.</li>
+                        <li>Building Power BI dashboards and Power Query models for data analysis and visualization.</li>
+                        <li>Conducting project analysis and providing actionable insights using Excel (advanced) and SQL.</li>
+                        <li>Preparing financial reports and variance analysis to support strategic decision-making.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Academic qualifications and achievements.</p>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card reveal">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Master of Commerce (M.Com) - Accounting &amp; Finance</h4>
+                    <div class="institute">Karnataka State Open University, Mysuru</div>
+                    <div class="detail">2024 – 2026</div>
+                    <span class="badge">2024-2026</span>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="icon"><i class="fas fa-university"></i></div>
+                    <h4>Bachelor of Commerce (B.Com)</h4>
+                    <div class="institute">Bengaluru City University</div>
+                    <div class="detail">Government First Grade College, Malleshwaram</div>
+                    <div class="detail">Sep 2021 – Jul 2024 | CGPA: 8.0/10</div>
+                    <span class="badge">First Class</span>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="icon"><i class="fas fa-school"></i></div>
+                    <h4>Pre-University Course (Commerce)</h4>
+                    <div class="institute">Om Sai PU College, Karnataka Board</div>
+                    <div class="detail">Jul 2019 – Jul 2021 | Percentage: 99%</div>
+                    <span class="badge">State 2nd Rank</span>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="icon"><i class="fas fa-book-open"></i></div>
+                    <h4>10th Standard (SSLC)</h4>
+                    <div class="institute">St. Meera's Public School, Karnataka Board</div>
+                    <div class="detail">Apr 2019 | Percentage: 97.60%</div>
+                    <span class="badge">Distinction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">FinTech Projects</h2>
+                <p class="section-subtitle">Financial technology and analysis projects I've worked on.</p>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-chart-line"></i></div>
+                    <div class="body">
+                        <h4>Financial Ratio Analysis</h4>
+                        <p>Analyzed a company's financial health using key ratios to evaluate performance and provide actionable insights.</p>
+                        <div class="tags"><span>Financial Analysis</span><span>Excel</span><span>Ratio Analysis</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-calculator"></i></div>
+                    <div class="body">
+                        <h4>Company Valuation Models</h4>
+                        <p>Applied DCF, Comparable Company Analysis, and Dividend Discount Models to determine intrinsic value.</p>
+                        <div class="tags"><span>Valuation</span><span>DCF</span><span>Financial Modeling</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-chart-pie"></i></div>
+                    <div class="body">
+                        <h4>Financial Dashboard – Power BI</h4>
+                        <p>Designed an interactive dashboard for real-time financial insights, KPIs, and trend analysis.</p>
+                        <div class="tags"><span>Power BI</span><span>Data Visualization</span><span>Dashboards</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-file-invoice"></i></div>
+                    <div class="body">
+                        <h4>Bank Reconciliation Automation</h4>
+                        <p>Built an Excel VBA tool to automate bank reconciliation, reducing manual effort by 70%.</p>
+                        <div class="tags"><span>VBA</span><span>Excel</span><span>Automation</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="body">
+                        <h4>Intercompany Reconciliation</h4>
+                        <p>Managed end-to-end intercompany reconciliation across multiple entities with zero mismatches.</p>
+                        <div class="tags"><span>Intercompany</span><span>Oracle</span><span>Reconciliation</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div class="body">
+                        <h4>GST Compliance Tracker</h4>
+                        <p>Developed a tracker to monitor GST filings, reconciliations, and statutory compliance deadlines.</p>
+                        <div class="tags"><span>GST</span><span>Compliance</span><span>Taxation</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-hand-holding-usd"></i></div>
+                    <div class="body">
+                        <h4>Working Capital Management</h4>
+                        <p>Analyzed working capital cycles, cash conversion efficiency, and liquidity positions.</p>
+                        <div class="tags"><span>Working Capital</span><span>Liquidity</span><span>Financial Analysis</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-chart-bar"></i></div>
+                    <div class="body">
+                        <h4>Budgeting &amp; Forecasting Model</h4>
+                        <p>Built a dynamic budget and forecasting model with scenario analysis and variance tracking.</p>
+                        <div class="tags"><span>Budgeting</span><span>Forecasting</span><span>Excel</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-users"></i></div>
+                    <div class="body">
+                        <h4>Customer Data Analytics</h4>
+                        <p>Analyzed customer data to derive insights for marketing, retention, and CRM strategies.</p>
+                        <div class="tags"><span>Data Analytics</span><span>CRM</span><span>Marketing</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-coins"></i></div>
+                    <div class="body">
+                        <h4>Cost Management &amp; Analysis</h4>
+                        <p>Performed cost allocation, variance analysis, and identified cost-saving opportunities.</p>
+                        <div class="tags"><span>Cost Accounting</span><span>Variance</span><span>Cost Control</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-building"></i></div>
+                    <div class="body">
+                        <h4>Fixed Asset Management</h4>
+                        <p>Managed asset lifecycle including additions, disposals, depreciation, and capitalization.</p>
+                        <div class="tags"><span>Fixed Assets</span><span>Depreciation</span><span>Accounting</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="img-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <div class="body">
+                        <h4>Financial Risk Management</h4>
+                        <p>Identified and mitigated financial risks through hedging, diversification, and controls.</p>
+                        <div class="tags"><span>Risk Management</span><span>Hedging</span><span>Finance</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional certifications and courses.</p>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-certificate"></i></div>
+                    <h5>Accounting Fundamentals</h5>
+                    <div class="issuer">Corporate Finance Institute</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h5>Fraud Investigation &amp; Internal Audit</h5>
+                    <div class="issuer">Riisk Pro</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-cogs"></i></div>
+                    <h5>Diploma in Office Management &amp; Tally ERP-9 with GST</h5>
+                    <div class="issuer">S.R Computer Education Centre</div>
+                    <div class="date">Issued: 2023</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-globe"></i></div>
+                    <h5>Global MBA Online Course</h5>
+                    <div class="issuer">Udemy</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                    <h5>Power BI</h5>
+                    <div class="issuer">Forage – PwC</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-file-excel"></i></div>
+                    <h5>Excel Macros &amp; VBA</h5>
+                    <div class="issuer">Simplilearn</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h5>SQL</h5>
+                    <div class="issuer">Intelliqaat</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="icon"><i class="fas fa-cubes"></i></div>
+                    <h5>Asset Management</h5>
+                    <div class="issuer">Great Learning</div>
+                    <div class="date">Issued: 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">What I can offer as a professional.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-chart-line"></i></div><h5>Financial Analysis</h5><p>In-depth financial analysis, reporting, and strategic insights.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-file-invoice"></i></div><h5>Accounting &amp; Tax</h5><p>GST, TDS, bookkeeping, and comprehensive accounting services.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-handshake"></i></div><h5>Consulting</h5><p>Business, financial, and strategic consulting for growth.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-brain"></i></div><h5>AI &amp; Automation</h5><p>AI-powered solutions and process automation for finance.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-chart-pie"></i></div><h5>Data Analytics</h5><p>Data-driven insights using Power BI, Excel, and SQL.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-calculator"></i></div><h5>US GAAP/IAS Research</h5><p>Expertise in US GAAP &amp; IAS research, financial reporting, and compliance.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-balance-scale"></i></div><h5>Auditing &amp; Assurance</h5><p>Internal &amp; external auditing, risk assessment, and assurance services.</p></div>
+                <div class="service-card reveal"><div class="icon"><i class="fas fa-database"></i></div><h5>ERP &amp; Systems Optimization</h5><p>NetSuite, Oracle, Tally ERP implementation and optimization.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Testimonials</h2>
+                <p class="section-subtitle">Thoughts from those I've worked with and taught.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-item">
+                        <div class="quote"><i class="fas fa-quote-left"></i></div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Nandish has an exceptional ability to break down complex financial concepts into simple, understandable lessons. His patience and dedication as a tutor have helped countless students build confidence and excel in their studies."</blockquote>
+                        <span class="role-tag">📚 Private Tutor • 25+ Students</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="quote"><i class="fas fa-quote-left"></i></div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"A dedicated and hardworking professional who consistently delivers quality work. His attention to detail and commitment to accuracy make him a valuable asset to any finance team."</blockquote>
+                        <span class="role-tag">💼 Finance Professional • Team Player</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="quote"><i class="fas fa-quote-left"></i></div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <blockquote>"Working with Nandish has been a great experience. He brings a positive attitude, strong work ethic, and a willingness to go the extra mile. His analytical skills and problem-solving abilities are truly impressive."</blockquote>
+                        <span class="role-tag">⭐ Reliable • Analytical • Dedicated</span>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots" id="testimonialDots">
+                    <button class="dot active" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">Have a question or want to work together? Reach out!</p>
+            </div>
+            <div class="contact-wrap">
+                <div class="contact-info reveal-left">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new projects, opportunities, or collaborations.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="text">nandishbc13@gmail.com <small>Email</small></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="text">+91 9731375764 <small>Phone</small></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="text">Chikkagollarahatti, Magadi Main Road <small>Bengaluru - 562123</small></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <div class="text">linkedin.com/in/nandishbc <small>LinkedIn</small></div>
+                    </div>
+                    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+                        <a href="https://github.com/nandishbc" target="_blank" style="color:var(--text-secondary);font-size:1.2rem;transition:color 0.3s;"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/Bc2Nandish?t=lrAN-pDB6W395PRMCL4Cuw&s=09" target="_blank" style="color:var(--text-secondary);font-size:1.2rem;transition:color 0.3s;"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@nandishbc2003/featured" target="_blank" style="color:var(--text-secondary);font-size:1.2rem;transition:color 0.3s;"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/iamnandish13?igshid=ZDdkNTZiNTM%3D" target="_blank" style="color:var(--text-secondary);font-size:1.2rem;transition:color 0.3s;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form reveal-right">
+                    <!-- ========================================================== -->
+                    <!-- CONTACT FORM – mailto: approach                              -->
+                    <!-- When submitted, opens user's default email client            -->
+                    <!-- with all fields pre-filled to: nandishbc13@gmail.com         -->
+                    <!-- ========================================================== -->
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required />
+                            <label for="name">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required />
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" " />
+                            <label for="phone">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder=" " required />
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder=" " rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="brand">
+                <div class="logo" style="font-size:1.4rem;">Nandish<span>BC</span></div>
+                <p>US GAAP/IAS Researcher | Executive Accountant | M.Com (Finance)</p>
+                <div class="socials">
+                    <a href="https://linkedin.com/in/nandishbc" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/nandishbc" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Bc2Nandish?t=lrAN-pDB6W395PRMCL4Cuw&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@nandishbc2003/featured" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/iamnandish13?igshid=ZDdkNTZiNTM%3D" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="#services">Financial Analysis</a></li>
+                    <li><a href="#services">Accounting &amp; Tax</a></li>
+                    <li><a href="#services">US GAAP/IAS Research</a></li>
+                    <li><a href="#services">Auditing &amp; Assurance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:nandishbc13@gmail.com">Email</a></li>
+                    <li><a href="tel:+919731375764">Phone</a></li>
+                    <li><a href="#contact">Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 <span class="heart">❤</span> Nandish B C. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ============================================================
+        // 1. LOADER
+        // ============================================================
+        window.addEventListener('load', () => {
+            document.getElementById('loader').classList.add('hidden');
+        });
+
+        // ============================================================
+        // 2. TYPING ANIMATION
+        // ============================================================
+        (function typing() {
+            const words = [
+                'US GAAP/IAS Researcher',
+                'Executive Accountant',
+                'M.Com (Finance)',
+                'Data Analytics Specialist',
+                'Power BI Developer',
+                'Financial Modeler'
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const el = document.getElementById('typedText');
+
+            function type() {
+                const current = words[wordIndex];
+                if (isDeleting) {
+                    el.textContent = current.substring(0, charIndex--);
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        setTimeout(type, 400);
+                        return;
+                    }
+                    setTimeout(type, 60);
+                } else {
+                    el.textContent = current.substring(0, charIndex++);
+                    if (charIndex > current.length) {
+                        isDeleting = true;
+                        setTimeout(type, 1800);
+                        return;
+                    }
+                    setTimeout(type, 100);
+                }
+            }
+            type();
+        })();
+
+        // ============================================================
+        // 3. NAVBAR SCROLL & ACTIVE LINK
+        // ============================================================
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            let current = '';
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = sec.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+
+        // ============================================================
+        // 4. HAMBURGER
+        // ============================================================
+        const hamburger = document.getElementById('hamburger');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinksContainer.classList.toggle('open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinksContainer.classList.remove('open');
+            });
+        });
+
+        // ============================================================
+        // 5. THEME TOGGLE (Light/Dark)
+        // ============================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+
+        // ============================================================
+        // 6. COLOR PALETTE PICKER
+        // ============================================================
+        const paletteBtn = document.getElementById('paletteBtn');
+        const paletteDropdown = document.getElementById('paletteDropdown');
+        const paletteOptions = document.querySelectorAll('.palette-option');
+
+        paletteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            paletteDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+            paletteDropdown.classList.remove('open');
+        });
+
+        paletteOptions.forEach(opt => {
+            opt.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                document.documentElement.setAttribute('data-theme', theme);
+                paletteOptions.forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+                paletteDropdown.classList.remove('open');
+
+                const root = document.documentElement;
+                const colors = {
+                    default: { primary: '#F97316', secondary: '#2563EB' },
+                    blue: { primary: '#2563EB', secondary: '#F97316' },
+                    'dark-orange': { primary: '#EA580C', secondary: '#F59E0B' }
+                };
+                const c = colors[theme];
+                if (c) {
+                    root.style.setProperty('--primary', c.primary);
+                    root.style.setProperty('--secondary', c.secondary);
+                }
+            });
+        });
+
+        // ============================================================
+        // 7. SCROLL REVEAL
+        // ============================================================
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // ============================================================
+        // 8. SKILLS BAR ANIMATION
+        // ============================================================
+        const skillFills = document.querySelectorAll('.skill-bar .fill');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fill = entry.target;
+                    const width = fill.getAttribute('data-width');
+                    fill.style.width = width + '%';
+                }
+            });
+        }, { threshold: 0.3 });
+        skillFills.forEach(fill => skillObserver.observe(fill));
+
+        // ============================================================
+        // 9. COUNTER ANIMATION
+        // ============================================================
+        const statNumbers = document.querySelectorAll('.stat-card .number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'), 10);
+                    let current = 0;
+                    const step = Math.max(1, Math.floor(target / 40));
+                    const interval = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(interval);
+                        }
+                        el.textContent = current;
+                    }, 30);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(num => counterObserver.observe(num));
+
+        // ============================================================
+        // 10. TESTIMONIAL SLIDER
+        // ============================================================
+        let currentTestimonial = 0;
+        const track = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('#testimonialDots .dot');
+        const totalTestimonials = document.querySelectorAll('.testimonial-item').length;
+
+        function goToTestimonial(index) {
+            if (index < 0) index = totalTestimonials - 1;
+            if (index >= totalTestimonials) index = 0;
+            currentTestimonial = index;
+            track.style.transform = 'translateX(-' + (index * 100) + '%)';
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        document.getElementById('prevTestimonial').addEventListener('click', () => {
+            goToTestimonial(currentTestimonial - 1);
+        });
+        document.getElementById('nextTestimonial').addEventListener('click', () => {
+            goToTestimonial(currentTestimonial + 1);
+        });
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => goToTestimonial(i));
+        });
+
+        let testimonialInterval = setInterval(() => {
+            goToTestimonial(currentTestimonial + 1);
+        }, 5000);
+
+        document.querySelector('.testimonial-slider').addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+        document.querySelector('.testimonial-slider').addEventListener('mouseleave', () => {
+            testimonialInterval = setInterval(() => {
+                goToTestimonial(currentTestimonial + 1);
+            }, 5000);
+        });
+
+        // ============================================================
+        // 11. CONTACT FORM – mailto: approach
+        // ============================================================
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+
+        function showToast(message, type = 'success') {
+            toast.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validate required fields
+            if (!name || !email || !subject || !message) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                showToast('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Build the email body with all details
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+
+            // Create mailto link – opens user's default email client
+            const mailtoLink = `mailto:nandishbc13@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+            // Open the email client
+            window.location.href = mailtoLink;
+
+            // Show success message
+            showToast('✅ Opening your email client... Please review and send the email.', 'success');
+
+            // Optional: reset the form after a moment
+            // setTimeout(() => { contactForm.reset(); }, 2000);
+        });
+
+        // ============================================================
+        // 12. BACK TO TOP
+        // ============================================================
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backTop.classList.add('visible');
+            } else {
+                backTop.classList.remove('visible');
+            }
+        });
+        backTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ============================================================
+        // 13. PARTICLES
+        // ============================================================
+        (function particles() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const count = 70;
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+                w = canvas.width;
+                h = canvas.height;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r: Math.random() * 2 + 1,
+                    dx: (Math.random() - 0.5) * 0.3,
+                    dy: (Math.random() - 0.5) * 0.3,
+                    alpha: Math.random() * 0.4 + 0.15
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#F97316';
+
+                particles.forEach(p => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0 || p.x > w) p.dx *= -1;
+                    if (p.y < 0 || p.y > h) p.dy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = primary + Math.round(p.alpha * 255).toString(16).padStart(2, '0');
+                    ctx.fill();
+                });
+
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = primary + '18';
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ============================================================
+        // 14. RESUME DOWNLOAD
+        // ============================================================
+        document.getElementById('resumeBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const resumeContent = `
+        ====================================================
+                    NANDISH B C - RESUME
+        ====================================================
+
+        Contact:
+        Mobile: +91 9731375764
+        Email: nandishbc13@gmail.com
+        LinkedIn: linkedin.com/in/nandishbc
+        Location: Bengaluru, India
+
+        ----------------------------------------------------
+        CAREER OBJECTIVE
+        ----------------------------------------------------
+        Aspiring for a dynamic role in finance and accounting,
+        with expertise in US GAAP/IAS research, financial
+        reporting, and data analytics. Committed to driving
+        organizational growth through precise financial
+        solutions and continuous learning.
+
+        ----------------------------------------------------
+        EDUCATION
+        ----------------------------------------------------
+        M.Com (Accounting & Finance) | Karnataka State Open University, Mysuru | 2024-2026
+        B.Com | Bengaluru City University | CGPA: 8.0/10 | 2024
+        PUC (Commerce) | Om Sai PU College | 99% | State 2nd Rank
+        10th | St. Meera's Public School | 97.60%
+
+        ----------------------------------------------------
+        EXPERIENCE
+        ----------------------------------------------------
+        Executive Accountant | Grandeur Advisors LLP | Apr 2026-Present
+        - Month-end close, AP/AR/GL reconciliations
+        - US GAAP accounting, NetSuite, Oracle tools
+        - Power BI dashboards, Excel advanced, SQL
+
+        Finance Apprentice - Sr. Associate | AtkinsRéalis | Mar 2025-Mar 2026
+        - Bank reconciliation, GL analysis, intercompany
+        - Journal posting, month-end close, Oracle EBS
+
+        Finance & Accounting Intern | Rydeu Logistics UG | Dec 2024-Mar 2025
+        - Investor research, financial analysis, bookkeeping
+
+        Private Tutor (Freelance) | 2021-2025
+        - Tutored 25+ students in Accounting, Finance, GST
+        - Subjects: Financial Accounting, Cost Accounting,
+          Corporate Accounting, Business Taxation, Business Studies
+
+        ----------------------------------------------------
+        SKILLS
+        ----------------------------------------------------
+        US GAAP/IAS Research, Financial Accounting, Cost & Management
+        NetSuite, Oracle EBS, Tally ERP 9, QuickBooks, SAP
+        Power BI, Power Query, Advanced Excel (VBA), SQL
+        Month-End Close, AP/AR/GL Reconciliation, Auditing
+        Analytical Thinking, Communication, Problem Solving
+
+        ----------------------------------------------------
+        CERTIFICATIONS
+        ----------------------------------------------------
+        Accounting Fundamentals | Corporate Finance Institute
+        Fraud Investigation & Internal Audit | Riisk Pro
+        Diploma in Tally ERP-9 with GST | S.R Computer Education
+        Global MBA | Udemy | Power BI | Forage - PwC
+        Excel Macros & VBA | Simplilearn | SQL | Intelliqaat
+
+        ----------------------------------------------------
+        ACHIEVEMENTS
+        ----------------------------------------------------
+        State 2nd Rank - Karnataka PUC Commerce
+        Honored by Karnataka State Vokkaliga Association
+        85% in NATIONAL ACCOUNTING TALENT SEARCH
+
+        ====================================================
+        `;
+
+            const blob = new Blob([resumeContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Nandish_BC_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('✅ Resume downloaded successfully!', 'success');
+        });
+
+        // ============================================================
+        // 15. SMOOTH SCROLL FOR NAV LINKS
+        // ============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        console.log('🚀 Nandish B C Portfolio loaded successfully!');
+    </script>
+
+</body>
+</html>
